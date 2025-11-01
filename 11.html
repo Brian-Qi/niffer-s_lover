@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>给雯的爱心雨</title>
+<style>
+body{margin:0;background:#000;overflow:hidden;height:100vh}
+.toast{position:fixed;padding:8px 14px;border-radius:6px;font:13px/1.4 微软雅黑;
+       color:#000;box-shadow:0 0 10px rgba(0,0,0,.3);}
+</style>
+</head>
+<body>
+<script>
+const tips = ['愿雯每天都能吃好处的', '愿雯能无忧无虑的', '愿雯能永远做开心的小公主哈哈哈', '愿雯不再受委屈', '雯真的超级聪明', '雯简直是最好的人', '雯超级超级可爱', '雯要健健康康的', '珍惜现在每一刻', '雯要多喝水哦', '雯的开心才最重要', '雯要幸福满满', '雯要多吃水果', '雯要保持好心情', '雯要好好爱自己', '雯要每天开心', '雯会梦想成真的', '期待与雯的见面', '雯要天天开心', '雯接下来万事都会顺顺利利', '雯要好好休息呢', '愿雯的烦恼都消失', '雯的美貌天下第一', '雯的卡点永远不会迟到', '雯会更幸福的', '天冷了雯要多穿点呢'];
+const bgc  = ['#FFB6C1', '#87CEEB', '#E6E6FA', '#F0FFF0', '#FFE4E1', '#90EE90', '#DDA0DD', '#FFE4C4', '#7FFFD4', '#FF7F50'];
+function pop(i){
+  const t = 2 * Math.PI * i / 300;
+  const x = 38 * (16 * Math.sin(t)**3) + window.innerWidth/2;
+  const y = -38 * (13 * Math.cos(t) - 5 * Math.cos(2*t) -
+                   2 * Math.cos(3*t) - Math.cos(4*t)) + window.innerHeight/2;
+  const div = document.createElement('div');
+  div.className = 'toast';
+  div.textContent = tips[Math.floor(Math.random()*tips.length)];
+  div.style.background = bgc[Math.floor(Math.random()*bgc.length)];
+  div.style.left = x + 'px';
+  div.style.top  = y + 'px';
+  document.body.appendChild(div);
+  setTimeout(()=>div.remove(), 3000);
+}
+for(let i=0;i<300;i++) setTimeout(()=>pop(i), i*10);
+</script>
+</body>
+</html>
